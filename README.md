@@ -43,4 +43,4 @@ The application handles the following requests:
 
 # Deployment
 
-Heroku: [![https://inventory-managementsystem.herokuapp.com/]]
+Heroku: [!https://betchat.herokuapp.com/]]
