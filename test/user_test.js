@@ -23,8 +23,8 @@ describe('users', () => {
         first_name: 'first_name',
         last_name: 'last_name',
         email: 'email@email.com',
-        phone_number: '08138242853',
         password: 'password',
+        interests: ['interests'],
       };
       chai.request(index)
         .post('/sign-up')
@@ -36,32 +36,13 @@ describe('users', () => {
           res.body.data.should.have.property('first_name');
           res.body.data.should.have.property('last_name');
           res.body.data.should.have.property('email');
-          res.body.data.should.have.property('phone_number');
           res.body.data.should.have.property('password');
+          res.body.data.should.have.property('interests');
+
           done();
         });
     });
   });
 });
 
-describe('/POST sign-in', () => {
-  it('should sign in users', (done) => {
-    const user = {
-      email: 'email@email.com',
-      password: 'password',
-    };
-    chai.request(index)
-      .post('/sign-in')
-      .send(user)
-      .end((err, res) => {
-        res.should.have.status(200);
-        res.body.should.be.a('object');
-        res.body.should.have.property('message').eql('Sign in was successful');
-        res.body.data.should.have.property('first_name');
-        res.body.data.should.have.property('last_name');
-        res.body.data.should.have.property('email');
-        res.body.data.should.have.property('phone_number');
-        done();
-      });
-  });
-});
+
